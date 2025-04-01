@@ -7,27 +7,62 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Ascension Store</h1>
-        <p>Buy your item and get a code!</p>
-    </header>
-
-    <section class="products">
-        <div class="product">
-            <h2>Item 1</h2>
-            <p>Price: $5</p>
-            <button onclick="purchase('item1')">Buy Item 1</button>
+    <h1>AscensionMC Store</h1>
+    <div class="store-grid">
+        <!-- RANKS -->
+        <div class="item" onclick="purchase('Ascended Rank', 23.99)">
+            <img src="images/ascended.png" alt="Ascended Rank">
+            <h3>Ascended Rank</h3>
+            <p>$23.99</p>
         </div>
-        <div class="product">
-            <h2>Item 2</h2>
-            <p>Price: $10</p>
-            <button onclick="purchase('item2')">Buy Item 2</button>
+        <div class="item" onclick="purchase('Timeless Rank', 16.99)">
+            <img src="images/timeless.png" alt="Timeless Rank">
+            <h3>Timeless Rank</h3>
+            <p>$16.99</p>
         </div>
-    </section>
+        <div class="item" onclick="purchase('Voidwalker', 11.99)">
+            <img src="images/voidwalker.png" alt="Voidwalker">
+            <h3>Voidwalker</h3>
+            <p>$11.99</p>
+        </div>
+        <div class="item" onclick="purchase('Starseeker', 9.49)">
+            <img src="images/starseeker.png" alt="Starseeker">
+            <h3>Starseeker</h3>
+            <p>$9.49</p>
+        </div>
+        <div class="item" onclick="purchase('Skylord', 4.99)">
+            <img src="images/skylord.png" alt="Skylord">
+            <h3>Skylord</h3>
+            <p>$4.99</p>
+        </div>
 
-    <footer>
-        <p>Thank you for shopping with us!</p>
-    </footer>
+        <!-- CRATES -->
+        <div class="item" onclick="purchase('Monthly Crate (1x)', 4.99)">
+            <img src="images/crate1.png" alt="Monthly Crate">
+            <h3>Monthly Crate</h3>
+            <p>$4.99</p>
+        </div>
+        <div class="item" onclick="purchase('2nd Top Crate (1x)', 2.99)">
+            <img src="images/crate2.png" alt="2nd Top Crate">
+            <h3>2nd Top Crate</h3>
+            <p>$2.99</p>
+        </div>
+        <div class="item" onclick="purchase('3rd Top Crate (1x)', 1.99)">
+            <img src="images/crate3.png" alt="3rd Top Crate">
+            <h3>3rd Top Crate</h3>
+            <p>$1.99</p>
+        </div>
+        <div class="item" onclick="purchase('4th Top Crate (1x)', 0.99)">
+            <img src="images/crate4.png" alt="4th Top Crate">
+            <h3>4th Top Crate</h3>
+            <p>$0.99</p>
+        </div>
+        <div class="item" onclick="purchase('5th Top Crate (1x)', 0.49)">
+            <img src="images/crate5.png" alt="5th Top Crate">
+            <h3>5th Top Crate</h3>
+            <p>$0.49</p>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
