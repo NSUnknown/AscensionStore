@@ -1,19 +1,17 @@
-const codes = {
-    item1: "CODE1234",
-    item2: "CODE5678"
-};
+async function purchase(item, price) {
+    const email = prompt("Enter your email:");
 
-function purchase(item) {
-    const code = codes[item];
-    if (code) {
-        alert(`You have purchased ${item}!\nYour code: ${code}`);
-        sendEmail(code);
-    } else {
-        alert("Error: Code not available.");
+    if (!email) {
+        alert("Email is required!");
+        return;
     }
-}
 
-function sendEmail(code) {
-    // Placeholder function, you’ll integrate email here
-    alert(`An email with the code: ${code} has been sent to you.`);
+    const response = await fetch('https://your-replit-server-url.repl.co/purchase', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, item, price })
+    });
+
+    const data = await response.json();
+    alert(data.message);
 }
