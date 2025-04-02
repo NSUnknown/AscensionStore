@@ -6,7 +6,7 @@ async function purchase(itemName, price) {
     let code = generateCode();
 
     // Save the code in the backend (Replit server)
-    await fetch('https://your-replit-server-url.repl.co/save_code', {
+    await fetch('https://replit.com/@dbberty/ascension-store-backend', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ item: itemName, code: code })
