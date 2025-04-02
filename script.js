@@ -1,17 +1,31 @@
-async function purchase(item, price) {
-    const email = prompt("Enter your email:");
+function generateCode() {
+    return Math.random().toString(36).substring(2, 10).toUpperCase();
+}
 
-    if (!email) {
-        alert("Email is required!");
-        return;
-    }
+async function purchase(itemName, price) {
+    let code = generateCode();
 
-    const response = await fetch('https://your-replit-server-url.repl.co/purchase', {
+    // Save the code in the backend (Replit server)
+    await fetch('https://your-replit-server-url.repl.co/save_code', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, item, price })
+        body: JSON.stringify({ item: itemName, code: code })
     });
 
-    const data = await response.json();
-    alert(data.message);
+    // Display the code
+    document.getElementById('code-display').innerHTML = `<p>Your Code: <b>${code}</b></p><p>Open a Discord ticket to claim your reward.</p>`;
+
+    // PayPal payment handling
+    paypal.Buttons({
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{ amount: { value: price } }]
+            });
+        },
+        onApprove: function(data, actions) {
+            return actions.order.capture().then(function(details) {
+                alert('Payment successful, check your code below.');
+            });
+        }
+    }).render('body');
 }
